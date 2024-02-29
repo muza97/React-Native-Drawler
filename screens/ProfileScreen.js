@@ -1,14 +1,16 @@
+//screens/ProfileScreen.js
+
 import {View, Text, StyleSheet} from "react-native"
 
-const DasboardScreen = () => {
+const ProfileScreen = () => {
     return (
         <View style={styles.container}>
-        <Text style= {styles.text}>Welcome to the DashBoard</Text> 
+        <Text style= {styles.text}>Welcome to your profile</Text> 
         </View>
     );
 };
 
-export default  DasboardScreen;
+export default  ProfileScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -17,7 +19,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
 text: {
-    fontSize:30,
+    fontSize:25,
     frontWeight: "bold",
     marginbottom: 16,
 },

@@ -1,16 +1,15 @@
-//screens/SettingsScreen.js
-
+//screens/MapScreen.js
 import {View, Text, StyleSheet} from "react-native"
 
-const SettingScreen = () => {
+const MapScreen = () => {
     return (
         <View style={styles.container}>
-        <Text style= {styles.text}>Welcome to the Settings</Text> 
+        <Text style= {styles.text}>Welcome to the Map</Text> 
         </View>
     );
 };
 
-export default SettingScreen;
+export default MapScreen;
 
 const styles = StyleSheet.create({
     container: {
