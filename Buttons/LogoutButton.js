@@ -8,7 +8,7 @@ const LogoutButton = ({ onLogout }) => {
     try {
 
       await AsyncStorage.removeItem('userToken');
-      await AsyncStorage.removeItem('driverId');
+      await AsyncStorage.removeItem('userId');
     } catch (error) {
       console.error('Network or server error:', error);
     } finally {

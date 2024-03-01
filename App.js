@@ -37,11 +37,13 @@ const App = () => {
 
 const AppContent = () => {
   const { isAuthenticated, setIsAuthenticated, isSignupVisible, setSignupVisible } = useContext(AuthContext);
-
+  const onLogout = () => {
+    setIsAuthenticated(false);
+  };
   return (
     <>
       {isAuthenticated ? (
-        <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props} setIsAuthenticated={setIsAuthenticated} />}>
+        <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props} onLogout={onLogout}setIsAuthenticated={setIsAuthenticated} />}>
           <Drawer.Screen name="Map" component={MapScreen} />
           <Drawer.Screen name="Payment" component={PaymentScreen} />
           <Drawer.Screen name="Profile" component={ProfileScreen} />
