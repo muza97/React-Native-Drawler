@@ -1,3 +1,4 @@
+//components/SignupBottomSheet.js
 import React, { useState } from 'react';
 import { View, TextInput, Button, Modal, StyleSheet, Text, ActivityIndicator } from 'react-native';
 
