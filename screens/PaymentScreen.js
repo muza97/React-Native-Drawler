@@ -14,13 +14,13 @@ export default  PaymentScreen;
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
-        alignIteams: "center",
-        justifyContent: "center",
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
     },
-text: {
-    fontSize:25,
-    frontWeight: "bold",
-    marginbottom: 16,
-},
-});
+    text: {
+      fontSize: 30,
+      fontWeight: "bold",
+      marginBottom: 16,
+    },
+  });
