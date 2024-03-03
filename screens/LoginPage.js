@@ -1,13 +1,13 @@
-//screens/LoginPage.js
 import React, { useState, useContext } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from '../context/AuthContext';
+import SignupBottomSheet from '../components/SignupBottomSheet'; // Make sure the path matches your file structure
 
 const LoginPage = ({ navigation }) => { 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setIsAuthenticated, setSignupVisible } = useContext(AuthContext); 
+  const { setIsAuthenticated, isSignupVisible, setSignupVisible } = useContext(AuthContext);
 
   const handleLogin = async () => {
     try {
@@ -50,7 +50,13 @@ const LoginPage = ({ navigation }) => {
         secureTextEntry
       />
       <Button title="Login" onPress={handleLogin} />
-      <Button title="Sign Up" onPress={() => setSignupVisible(true)} />
+         <Button title="Sign Up" onPress={() => setSignupVisible(true)} />
+      {isSignupVisible && (
+        <SignupBottomSheet
+          visible={isSignupVisible}
+          onClose={() => setSignupVisible(false)}
+        />
+      )}
     </View>
   );
 };

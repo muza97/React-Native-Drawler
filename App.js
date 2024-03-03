@@ -43,10 +43,11 @@ const AppContent = () => {
   return (
     <>
       {isAuthenticated ? (
-        <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props} onLogout={onLogout}setIsAuthenticated={setIsAuthenticated} />}>
+          <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props} onLogout={onLogout}setIsAuthenticated={setIsAuthenticated} />}>
+          
           <Drawer.Screen name="Map" component={MapScreen} />
+          <Drawer.Screen name="Profile" component={ProfileScreen} />         
           <Drawer.Screen name="Payment" component={PaymentScreen} />
-          <Drawer.Screen name="Profile" component={ProfileScreen} />
           <Drawer.Screen name="Settings" component={SettingScreen} />
           {/*  other screens */}
         </Drawer.Navigator>

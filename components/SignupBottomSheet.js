@@ -1,22 +1,21 @@
-//components/SignupBottomSheet.js
+// components/SignupBottomSheet.js
 import React, { useState } from 'react';
 import { View, TextInput, Button, Modal, StyleSheet, Text, ActivityIndicator } from 'react-native';
 
-const SignupBottomSheet = ({ visible, onClose, onSignupSuccess }) => {
+const SignupBottomSheet = ({ visible, onClose }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState(''); // State to hold the success message
 
   const validateForm = () => {
-
     if (!email || !password || !name || !phoneNumber) {
       setError('All fields are required');
       return false;
     }
-
     return true;
   };
 
@@ -36,8 +35,15 @@ const SignupBottomSheet = ({ visible, onClose, onSignupSuccess }) => {
 
       const data = await response.json();
       if (response.ok) {
-        onSignupSuccess(email, password);
-        onClose();
+        setSuccessMessage('Registration successful! Please log in.'); // Set the success message
+        setName('');
+        setEmail('');
+        setPassword('');
+        setPhoneNumber('');
+        setTimeout(() => {
+          setSuccessMessage('');
+          onClose(); // Close the bottom sheet after a short delay
+        }, 3000); // 3-second delay
       } else {
         console.error('Signup failed:', data.message);
         setError(data.message || 'Signup failed');
@@ -58,23 +64,21 @@ const SignupBottomSheet = ({ visible, onClose, onSignupSuccess }) => {
           <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" autoCapitalize="none" />
           <TextInput style={styles.input} placeholder="Phone Number" value={phoneNumber} onChangeText={setPhoneNumber} keyboardType="phone-pad" />
           <TextInput style={styles.input} placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
+          {successMessage ? <Text style={styles.success}>{successMessage}</Text> : null}
           {error ? <Text style={styles.error}>{error}</Text> : null}
           {isLoading ? (
             <ActivityIndicator size="large" color="#0000ff" />
           ) : (
-            <>
-              <View style={styles.buttonContainer}>
-                <Button title="Sign Up" onPress={handleSignup} />
-                <Button title="Cancel" onPress={onClose} />
-              </View>
-            </>
+            <View style={styles.buttonContainer}>
+              <Button title="Sign Up" onPress={handleSignup} />
+              <Button title="Cancel" onPress={onClose} />
+            </View>
           )}
         </View>
       </View>
     </Modal>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -95,6 +99,11 @@ const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 10,
     borderRadius: 5,
+  },
+  success: {
+    color: 'green',
+    textAlign: 'center',
+    marginBottom: 10,
   },
   buttonContainer: {
     flexDirection: 'row',
