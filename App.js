@@ -14,6 +14,7 @@ import MapScreen from './screens/MapScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SettingScreen from './screens/SettingScreen';
+import ContactScreen from './screens/ContactScreen';
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -49,6 +50,7 @@ const AppContent = () => {
           <Drawer.Screen name="Profile" component={ProfileScreen} />         
           <Drawer.Screen name="Payment" component={PaymentScreen} />
           <Drawer.Screen name="Settings" component={SettingScreen} />
+          <Drawer.Screen name=  "Contact Us" component={ContactScreen} />
           {/*  other screens */}
         </Drawer.Navigator>
       ) : (
