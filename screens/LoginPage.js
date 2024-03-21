@@ -11,7 +11,7 @@ const LoginPage = ({ navigation }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('https://api-focnoae3da-uc.a.run.app/api/login/user', {
+      const response = await fetch('https://api-hdzvzie4ya-uc.a.run.app/api/login/driver', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

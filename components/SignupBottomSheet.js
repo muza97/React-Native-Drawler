@@ -21,21 +21,24 @@ const SignupBottomSheet = ({ visible, onClose }) => {
 
   const handleSignup = async () => {
     if (!validateForm()) return;
-
+  
     setIsLoading(true);
     setError('');
+  
     try {
-      const response = await fetch('https://api-focnoae3da-uc.a.run.app/api/register/user', {
+      const response = await fetch('https://api-hdzvzie4ya-uc.a.run.app/api/register/driver', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, password, phoneNumber }),
+        // Adjusted field name to "phone_number"
+        body: JSON.stringify({ name, email, password, phone_number: phoneNumber }),
       });
-
+  
       const data = await response.json();
+  
       if (response.ok) {
-        setSuccessMessage('Registration successful! Please log in.'); // Set the success message
+        setSuccessMessage('Registration successful! Please log in.');
         setName('');
         setEmail('');
         setPassword('');
@@ -43,7 +46,7 @@ const SignupBottomSheet = ({ visible, onClose }) => {
         setTimeout(() => {
           setSuccessMessage('');
           onClose(); // Close the bottom sheet after a short delay
-        }, 3000); // 3-second delay
+        }, 2000); // 3-sectest@ond delay
       } else {
         console.error('Signup failed:', data.message);
         setError(data.message || 'Signup failed');
@@ -55,6 +58,7 @@ const SignupBottomSheet = ({ visible, onClose }) => {
       setIsLoading(false);
     }
   };
+  
 
   return (
     <Modal visible={visible} animationType="slide" transparent>
