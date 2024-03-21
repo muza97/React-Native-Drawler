@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Image} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from '../context/AuthContext';
 import SignupBottomSheet from '../components/SignupBottomSheet'; // Make sure the path matches your file structure
@@ -34,6 +34,11 @@ const LoginPage = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+    <Image
+      source={require('../assets/image/Unknown-6.jpeg')} // Adjust the path as necessary
+      style={styles.logo}
+    />
+    {/* <View style={styles.container}> */}
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -67,6 +72,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    marginTop: 30,
+
   },
   input: {
     width: '100%',
