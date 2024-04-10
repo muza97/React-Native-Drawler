@@ -13,7 +13,7 @@ const CustomDrawerContent = (props) => {
     <DrawerContentScrollView {...props}>
       <View style={styles.profileContainer}>
         <Image
-          source={require('../img/Unknown-3.jpg')} // Replace with your image URI
+          source={require('../img/Unknown-3.jpg')} 
           style={styles.profileImage}
         />
         <TouchableOpacity onPress={navigateToProfile} style={styles.profileButton}>

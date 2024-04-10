@@ -1,11 +1,12 @@
+//screens/contactScreen.js
 import React, { useState } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import MessageForm from '../components/MessageForm'; // Ensure correct path
-import MyMap from '../components/MyMap'; // Make sure this is the correct path
+import MessageForm from '../components/MessageForm'; 
+import MyMap from '../components/MyMap'; 
 
 const ContactUsPage = () => {
-  const [view, setView] = useState('form'); // Start with 'form' or 'map'
+  const [view, setView] = useState('form'); 
 
   const initialRegion = {
     latitude: 37.78825,
@@ -35,25 +36,25 @@ const ContactUsPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5', // Or any desired background color
+    backgroundColor: '#f5f5f5', 
   },
   iconContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     paddingTop: 20,
-    backgroundColor: '#fff', // Background color for the icons container
+    backgroundColor: '#fff', 
     borderBottomWidth: 1,
-    borderBottomColor: '#e1e1e1', // Color for the separator line
+    borderBottomColor: '#e1e1e1', 
   },
   contentContainer: {
     flex: 1,
-    // If you need padding or any other style here, add it
+    
   },
   map: {
     width: '100%',
     height: '100%',
   },
-  // Add other styles if needed
+  
 });
 
 export default ContactUsPage;

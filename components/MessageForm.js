@@ -1,3 +1,4 @@
+//components/MessageForm.js
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Alert, ScrollView } from 'react-native';
 
@@ -7,7 +8,7 @@ const MessageForm = ({ onSubmit }) => {
   const [message, setMessage] = useState('');
 
   const handleSubmit = () => {
-    // Simple validation
+   
     if (!name.trim() || !email.trim() || !message.trim()) {
       Alert.alert('Please fill out all fields.');
       return;
@@ -19,12 +20,12 @@ const MessageForm = ({ onSubmit }) => {
     // Here you would typically send the message to your backend or email service
     Alert.alert('Thank you!', 'Your message has been sent.');
 
-    // Clear the form
+    
     setName('');
     setEmail('');
     setMessage('');
 
-    // Call onSubmit to reset view or navigate back, if passed
+    
     if (onSubmit) onSubmit();
   };
 
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 5,
   },
-  // Add styles for other elements as needed
+ 
 });
 
 export default MessageForm;

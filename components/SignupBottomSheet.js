@@ -9,7 +9,7 @@ const SignupBottomSheet = ({ visible, onClose }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState(''); // State to hold the success message
+  const [successMessage, setSuccessMessage] = useState(''); 
 
   const validateForm = () => {
     if (!email || !password || !name || !phoneNumber) {
@@ -46,7 +46,7 @@ const SignupBottomSheet = ({ visible, onClose }) => {
         setTimeout(() => {
           setSuccessMessage('');
           onClose(); // Close the bottom sheet after a short delay
-        }, 2000); // 3-sectest@ond delay
+        }, 2000); // 3-sec delay
       } else {
         console.error('Signup failed:', data.message);
         setError(data.message || 'Signup failed');

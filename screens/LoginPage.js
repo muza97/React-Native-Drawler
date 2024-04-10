@@ -1,8 +1,9 @@
+//AwesomeProject/screens/LoginPage.js
 import React, { useState, useContext } from 'react';
 import { View, TextInput, Button, StyleSheet, Image} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from '../context/AuthContext';
-import SignupBottomSheet from '../components/SignupBottomSheet'; // Make sure the path matches your file structure
+import SignupBottomSheet from '../components/SignupBottomSheet'; 
 
 const LoginPage = ({ navigation }) => { 
   const [email, setEmail] = useState('');
@@ -35,7 +36,7 @@ const LoginPage = ({ navigation }) => {
   return (
     <View style={styles.container}>
     <Image
-      source={require('../assets/image/Unknown-6.jpeg')} // Adjust the path as necessary
+      source={require('../assets/image/Unknown-6.jpeg')}
       style={styles.logo}
     />
     {/* <View style={styles.container}> */}
