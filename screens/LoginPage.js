@@ -1,11 +1,11 @@
-//AwesomeProject/screens/LoginPage.js
+
 import React, { useState, useContext } from 'react';
-import { View, TextInput, Button, StyleSheet, Image} from 'react-native';
+import { View, TextInput, Button, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from '../context/AuthContext';
-import SignupBottomSheet from '../components/SignupBottomSheet'; 
+import SignupBottomSheet from '../components/SignupBottomSheet';
 
-const LoginPage = ({ navigation }) => { 
+const LoginPage = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { setIsAuthenticated, isSignupVisible, setSignupVisible } = useContext(AuthContext);
@@ -34,14 +34,13 @@ const LoginPage = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-    <Image
-      source={require('../assets/image/Unknown-6.jpeg')}
-      style={styles.logo}
-    />
-    {/* <View style={styles.container}> */}
+    <View className="flex-1 items-center justify-center p-5 mt-7.5">
+      <Image
+        source={require('../assets/image/Unknown-6.jpeg')}
+        className="h-20 w-20"
+      />
       <TextInput
-        style={styles.input}
+        className="w-full border border-gray-300 p-2.5 my-2.5"
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
@@ -49,14 +48,14 @@ const LoginPage = ({ navigation }) => {
         autoCapitalize="none"
       />
       <TextInput
-        style={styles.input}
+        className="w-full border border-gray-300 p-2.5 my-2.5"
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
       />
       <Button title="Login" onPress={handleLogin} />
-         <Button title="Sign Up" onPress={() => setSignupVisible(true)} />
+      <Button title="Sign Up" onPress={() => setSignupVisible(true)} />
       {isSignupVisible && (
         <SignupBottomSheet
           visible={isSignupVisible}
@@ -66,23 +65,5 @@ const LoginPage = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-    marginTop: 30,
-
-  },
-  input: {
-    width: '100%',
-    borderWidth: 1,
-    borderColor: '#ddd',
-    padding: 10,
-    marginVertical: 10,
-  },
-});
 
 export default LoginPage;
