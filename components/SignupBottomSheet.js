@@ -64,7 +64,7 @@ const SignupBottomSheet = ({ visible, onClose }) => {
     <Modal visible={visible} animationType="slide" transparent>
       <View style={styles.container}>
         <View style={styles.sheet}>
-          <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName} />
+          <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName} autoCapitalize ="none"/>
           <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" autoCapitalize="none" />
           <TextInput style={styles.input} placeholder="Phone Number" value={phoneNumber} onChangeText={setPhoneNumber} keyboardType="phone-pad" />
           <TextInput style={styles.input} placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
