@@ -1,6 +1,6 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage'; 
-import Geolocation from '@react-native-community/geolocation';  
+ 
 
 export const updateLocation = async (latitude, longitude) => {
     try {
